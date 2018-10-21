@@ -1,0 +1,16 @@
+{
+  "name": "input",
+  "version": "1.0.0",
+  "description": "Input Element",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+http://github.com/input.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com"
+  },
+  "homepage": "https://github.com/repos/input"
+}

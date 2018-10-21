@@ -1,0 +1,16 @@
+{
+  "name": "@tradeport/main",
+  "version": "1.0.0",
+  "description": "Angular Application Seed",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aelbore/ngx-seed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aelbore/ngx-seed/issues"
+  },
+  "homepage": "https://github.com/aelbore/ngx-seed#readme"
+}

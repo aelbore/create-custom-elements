@@ -1,0 +1,15 @@
+{
+  "title": "Create Custom Elements",
+  "build": {
+    "prod": {
+      "ar-input": [ "input" ]
+    },
+    "scripts": [
+      "main/bundles/main.umd.js",
+      "elements/bundles/elements.umd.js"
+    ],
+    "styles": [
+      "src/style.css"
+    ]
+  }
+}
