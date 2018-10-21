@@ -6,8 +6,7 @@
   "scripts": {
     "clean.all": "gulp clean.all",
     "build": "gulp build",
-    "start": "gulp --watch --livereload --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp --watch --livereload --open"
   },
   "repository": {
     "type": "git",
