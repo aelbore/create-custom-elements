@@ -6,4 +6,7 @@ import { CustomElement } from 'custom-elements-ts';
   styleUrl: './app.element.scss',
   shadow: false
 })
-export class AppElement extends HTMLElement { }
+export class AppElement extends HTMLElement { 
+
+  
+}

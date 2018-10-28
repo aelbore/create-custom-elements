@@ -20,8 +20,9 @@
   },
   "homepage": "https://github.com/aelbore/create-custom-elements#readme",
   "dependencies": {
-    "@webcomponents/custom-elements": "1.2.0",
-    "custom-elements-ts": "0.0.15"
+    "@webcomponents/custom-elements": "1.2.1",
+    "custom-elements-ts": "0.0.15",
+    "rxjs": "6.3.3"
   },
   "devDependencies": {
     "@angular/compiler": "7.0.0",
