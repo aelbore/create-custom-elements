@@ -16,7 +16,7 @@ export class ProfileCardElement extends HTMLElement {
 
   @Watch('profiles')
   async onPropertyChangedProfiles(value: any) {
-    if (value.new && Array.isArray(value.new) && value.new.length > 0) {
+    if (value.new && Array.isArray(value.new)) {
       const children = this.querySelectorAll('ar-card');
       await Promise.all(Array.from(children).map(child => child.remove()));
       
@@ -27,22 +27,18 @@ export class ProfileCardElement extends HTMLElement {
 
   connectedCallback() {
     const input: any = this.querySelector('ar-input');
-    this.getProfiles(input.value);
+    getProfiles(input.value).subscribe(profiles => { 
+      this.profiles = profiles 
+    });
 
     input.addEventListener('ar.change', function(e: CustomEvent | any) {
       of(e.detail.value)
         .pipe(debounceTime(700), distinctUntilChanged())
-        .pipe(flatMap(text =>  text.length ? getProfiles(text): of([])))
+        .pipe(flatMap(text => getProfiles(text)))
         .subscribe(profiles => {
           this.profiles = profiles;
         });    
     }.bind(this));
-  }
-
-  private getProfiles(name: string) {
-    return getProfiles(name).subscribe(profiles => {
-      this.profiles = profiles;
-    })
   }
 
   private createCardItem(profiles: Profile[]) {
