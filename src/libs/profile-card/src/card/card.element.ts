@@ -15,32 +15,20 @@ export class CardElement extends HTMLElement {
   onPropertyChangedProfiles(value: any) {
     if (value.new) {
       const content = this.shadowRoot.querySelector('div.content');
-      content.appendChild(this.createContent(CardElement.fromJson(value.new)));
+      content.appendChild(this.createContent(value.new));
     }
   }
 
-  createContent(content: Profile) {
+  createContent({ name, profession, motto }: Profile) {
     const template = document.createElement('template');
     template.innerHTML = `
       <div class="main">
-        <h3 class="name">${content.name}</h3>
-        <p class="profession">${content.profession}</p>
-        <p class="text-center">${content.motto}</p>
+        <h3 class="name">${name}</h3>
+        <p class="profession">${profession}</p>
+        <p class="text-center">${motto}</p>
       </div>
     `;
     return document.importNode(template.content, true);
   }
-
-  static fromJson(str) {
-    let obj = null;
-    if (typeof str == "string") {
-      try {
-        obj = JSON.parse(str);
-      } catch (e) {
-        throw new Error("Invalid JSON string provided. ");
-      }
-    }
-    return obj;
-}
 
 }
