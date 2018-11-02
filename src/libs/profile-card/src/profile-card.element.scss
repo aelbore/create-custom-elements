@@ -1,13 +1,9 @@
 :host {
-  .container {
-    max-width: 1400px;
-    margin: auto;
-  }
 
   .card-container-list {
     display: grid;
-    grid-gap: 15px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 0.25fr));
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 0.25fr));
   }
   
   .empty-state {
@@ -15,5 +11,6 @@
     border: 1px solid lightgray;
     padding: 20px;
   }
+
 }
 
