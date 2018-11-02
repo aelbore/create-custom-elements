@@ -6,6 +6,7 @@
       "profile-card": [ "profile-card" ]
     },
     "scripts": [
+      "node_modules/rxjs/bundles/rxjs.umd.js",
       "main/bundles/main.umd.js",
       "elements/bundles/elements.umd.js",
       "profile-card/bundles/profile-card.umd.js"

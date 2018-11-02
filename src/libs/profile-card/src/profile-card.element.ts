@@ -22,10 +22,10 @@ export class ProfileCardElement extends HTMLElement {
       const children = Array.from(this.shadowRoot.querySelectorAll('ar-card'));
       await Promise.all(children.map(child => child.remove()));      
       
-      const emptyState = container.querySelector('.empty-state');
+      const emptyState = this.shadowRoot.querySelector('.empty-state');
       if (value.new.length < 1) {
         if (!emptyState) {
-          container.appendChild(this.createEmptyState());
+          this.shadowRoot.appendChild(this.createEmptyState());
         }
       } else {
         if (emptyState) {
