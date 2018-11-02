@@ -11,8 +11,7 @@
       "profile-card/bundles/profile-card.umd.js"
     ],
     "styles": [
-      "src/style.css",
-      "src/external.css"
+      "src/style.css"
     ]
   }
 }

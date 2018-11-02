@@ -25,12 +25,12 @@
     "rxjs": "6.3.3"
   },
   "devDependencies": {
-    "@angular/compiler": "7.0.1",
-    "@angular/compiler-cli": "7.0.1",
+    "@angular/compiler": "7.0.2",
+    "@angular/compiler-cli": "7.0.2",
     "@ngx-devtools/task": "2.0.0-beta.20",
     "@types/jasmine": "2.8.9",
-    "jasmine-core": "3.2.1",
-    "karma": "3.0.0",
+    "jasmine-core": "3.3.0",
+    "karma": "3.1.1",
     "karma-chrome-launcher": "2.2.0",
     "karma-jasmine": "1.1.2",
     "karma-mocha-reporter": "2.2.5",
