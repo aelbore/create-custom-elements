@@ -2,11 +2,13 @@
   "title": "Create Custom Elements",
   "build": {
     "prod": {
-      "ar-input": [ "input" ]
+      "ar-input": [ "input" ],
+      "profile-card": [ "profile-card" ]
     },
     "scripts": [
       "main/bundles/main.umd.js",
-      "elements/bundles/elements.umd.js"
+      "elements/bundles/elements.umd.js",
+      "profile-card/bundles/profile-card.umd.js"
     ],
     "styles": [
       "src/style.css"

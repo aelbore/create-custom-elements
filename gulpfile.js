@@ -9,4 +9,4 @@ class GulpFileTask extends TaskConfig {
   }
 }
 
-GulpFileTask.registerTasks();
+GulpFileTask.registerTasks(require('gulp'));
