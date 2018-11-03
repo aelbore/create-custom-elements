@@ -61,9 +61,7 @@ export class ProfileCardElement extends HTMLElement {
   createEmptyState() {
     const template = document.createElement('template');
     template.innerHTML = `
-      <div class="empty-state">
-        No Records Found.
-      </div>
+      <div class="empty-state">No Records Found.</div>
     `;
     return document.importNode(template.content, true);
   }
