@@ -9,13 +9,17 @@ Boilerplate to create custom elements
   ```
 * Install dependencies
   ```
-   npm install
+  npm install
   ```
 * Start the Application
   ```
   npm start
   ```
   - this will build, watch the file changes, live reload and open browser
+* Run unit test
+  ```
+  npm test
+  ```
 
 <br />
 
@@ -30,21 +34,32 @@ Boilerplate to create custom elements
 |   |  ├─ app.element.scss
 |   |  ├─ app.element.ts 
 |   |  ├─ index.ts  
-|   |  └─ package.json     
-|   ├─ elements                           # custom elements or web components library     
-|      ├─ <input>                         # example of web components folder
-|      |  ├─ src                          # this should mandatory, all source code should be inside `src`
-|      |  |  ├─ index.ts                  # export .ts file <input.element.ts>
-|      |  |  ├─ input.element.html        # <optional>, all your markup codes
-|      |  |  ├─ input.element.scss        # <optional>, all your style codes, you can have `.css`.
-|      |  |  ├─ input.element.spec.ts     # <optional>, spec file, contain your unit test
-|      |  |  └─ input.element.ts          # main web component, define your custom elements
-|      |  └── package.json                # <mandatory> `name` should be same as folder name
-|      ├─ .....	 	             
-|       
-|  
+|   |  └─ package.json    
+|   ├─ elements                           # reusable custom elements 
+|   |  ├─ <input>                         # example of web components folder
+|   |  |  ├─ src                          # this should mandatory, all source code should be inside `src`
+|   |  |  |  ├─ index.ts                  # export .ts file <input.element.ts>
+|   |  |  |  ├─ input.element.html        # <optional>, all your markup codes
+|   |  |  |  ├─ input.element.scss        # <optional>, all your style codes, you can have `.css`.
+|   |  |  |  ├─ input.element.spec.ts     # <optional>, spec file, contain your unit test
+|   |  |  |  └─ input.element.ts          # main web component, define your custom elements
+|   |  |  └── package.json                # <mandatory> `name` should be same as folder name
+|   |  ├─ .....	 	             
+|   |  |  
+|   ├─ libs
+|      ├─ <profile-card>                   # library or micro-app web components
+|      |  ├─ src                           # this should mandatory, all source code should be inside `src`
+|      |  |  ├─ index.ts                   # <mandatory> export .ts file <profile-card.element.ts>
+|      |  |  ├─ profile-card.element.html  # <optional>, all your markup codes
+|      |  |  ├─ profile-card.element.scss  # <optional>, all your style codes, you can have `.css`.
+|      |  |  ├─ profile-card.element.ts    # <mandatory> main web component, define your custom elements
+|      |  |  └─ profile-card.ts            # <optional> define your model, service or utils here.
+|      |  └── package.json                 # <mandatory> `name` should be same as folder name
+|      ├─ .....	
+|
+|
 ├── README.md
-├── .devtools.json                        # add config for build and server ie. static folders, proxyServers.  
+├── .devtools.json                        # add config for build and server ie. static folders.  
 ├── rollup.config.js                      # rollup config, override default config.  
 ├── gulpfile.js                           # customize your build, add task      
 ├── package.json
