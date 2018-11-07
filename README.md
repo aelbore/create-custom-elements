@@ -50,12 +50,12 @@ Boilerplate to create custom elements
 * Add Files
   ```
     ├─ elements                           
-    |  ├─ <start-rating>                      
+    |  ├─ <star-rating>                      
     |  |  ├─ src                              
     |  |  |  ├─ index.ts                      
-    |  |  |  ├─ start-rating.element.html      
-    |  |  |  ├─ start-rating.element.scss      
-    |  |  |  └─ start-rating.element.ts       
+    |  |  |  ├─ star-rating.element.html      
+    |  |  |  ├─ star-rating.element.scss      
+    |  |  |  └─ star-rating.element.ts       
     |  |  └── package.json                    
   ```
 * Add Codes
@@ -201,15 +201,15 @@ Boilerplate to create custom elements
 |   |  ├─ app.element.ts 
 |   |  ├─ index.ts  
 |   |  └─ package.json    
-|   ├─ elements                               # reusable custom elements 
-|   |  ├─ <start-rating>                      # example of web components folder
-|   |  |  ├─ src                              # this should mandatory, all source code should be inside `src`
-|   |  |  |  ├─ index.ts                      # export .ts file <input.element.ts>
-|   |  |  |  ├─ start-rating.element.html     # <optional>, all your markup codes
-|   |  |  |  ├─ start-rating.element.scss     # <optional>, all your style codes, you can have `.css`.
-|   |  |  |  ├─ start-rating.element.spec.ts  # <optional>, spec file, contain your unit test
-|   |  |  |  └─ start-rating.element.ts       # main web component, define your custom elements
-|   |  |  └── package.json                    # <mandatory> `name` should be same as folder name
+|   ├─ elements                              # reusable custom elements 
+|   |  ├─ <star-rating>                      # example of web components folder
+|   |  |  ├─ src                             # this should mandatory, all source code should be inside `src`
+|   |  |  |  ├─ index.ts                     # export .ts file <input.element.ts>
+|   |  |  |  ├─ star-rating.element.html     # <optional>, all your markup codes
+|   |  |  |  ├─ star-rating.element.scss     # <optional>, all your style codes, you can have `.css`.
+|   |  |  |  ├─ star-rating.element.spec.ts  # <optional>, spec file, contain your unit test
+|   |  |  |  └─ star-rating.element.ts       # main web component, define your custom elements
+|   |  |  └── package.json                   # <mandatory> `name` should be same as folder name
 |   |  ├─ .....	 	             
 |
 |
