@@ -167,7 +167,7 @@ Boilerplate to create custom elements
     export * from './star-rating.element';
     ``` 
 
-* Update our `app.element.html` markup
+* Update `src/app/app.element.html` markup
   ```html
   <div class="container">
     <star-rating checked></star-rating>
@@ -189,8 +189,7 @@ Boilerplate to create custom elements
 
 * Browse http://localhost:4000
 
-
-### Project Structure
+## Project Structure
 ```
 .
 ├── node_modules 
