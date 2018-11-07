@@ -4,6 +4,7 @@ module.exports = function(config) {
 
     files: [
       { pattern: 'base.spec.ts' }, 
+      { pattern: 'src/libs/**/!(index|*.stories)*.ts' },
       { pattern: 'src/elements/**/!(index|*.stories)*.ts' }
     ],
 
@@ -25,7 +26,7 @@ module.exports = function(config) {
         transforms: [ require('./karma-transform') ],
       },
       compilerOptions: {
-        rootDir: 'elements',
+        rootDir: 'src',
         skipLibCheck: true,
         lib: ['ES2015', 'DOM']
       },

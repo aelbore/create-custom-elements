@@ -1,0 +1,16 @@
+:host {
+
+  .card-container-list {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 0.25fr));
+  }
+  
+  .empty-state {
+    text-align: center;
+    border: 1px solid lightgray;
+    padding: 20px;
+  }
+
+}
+
