@@ -48,146 +48,147 @@ Boilerplate to create custom elements
   ```
 
 * Add Files
-```
-  ├─ elements                           
-  |  ├─ <start-rating>                      
-  |  |  ├─ src                              
-  |  |  |  ├─ index.ts                      
-  |  |  |  ├─ start-rating.element.html      
-  |  |  |  ├─ start-rating.element.scss      
-  |  |  |  └─ start-rating.element.ts       
-  |  |  └── package.json                    
-```
+  ```
+    ├─ elements                           
+    |  ├─ <start-rating>                      
+    |  |  ├─ src                              
+    |  |  |  ├─ index.ts                      
+    |  |  |  ├─ start-rating.element.html      
+    |  |  |  ├─ start-rating.element.scss      
+    |  |  |  └─ start-rating.element.ts       
+    |  |  └── package.json                    
+  ```
 * Add Codes
   * Add Code to `star-rating.element.ts`
-    * Add Element
-    ```ts
-    import { CustomElement } from 'custom-elements-ts';
+    * Add Element using @CustomElement decorator
+      ```ts
+      import { CustomElement } from 'custom-elements-ts';
 
-    @CustomElement({
-      tag: 'star-rating',
-      templateUrl: './star-rating.element.html',
-      styleUrl: './star-rating.element.scss'
-    })
-    export class StarRatingElement extends HTMLElement { 
+      @CustomElement({
+        tag: 'star-rating',
+        templateUrl: './star-rating.element.html',
+        styleUrl: './star-rating.element.scss'
+      })
+      export class StarRatingElement extends HTMLElement { 
 
-    }
-    ```
-    * Add Toggle decorator to `checked` property
-    ```ts
-    import { CustomElement } from 'custom-elements-ts';
+      }
+      ```
+    * Add @Toggle decorator to `checked` property
+      ```ts
+      import { CustomElement } from 'custom-elements-ts';
 
-    @CustomElement({
-      tag: 'star-rating',
-      templateUrl: './star-rating.element.html',
-      styleUrl: './star-rating.element.scss'
-    })
-    export class StarRatingElement extends HTMLElement { 
-        
+      @CustomElement({
+        tag: 'star-rating',
+        templateUrl: './star-rating.element.html',
+        styleUrl: './star-rating.element.scss'
+      })
+      export class StarRatingElement extends HTMLElement { 
+          
+          @Toggle() checked = true;
+
+      }
+      ```
+    * Add @Watch decorator
+      ```ts
+      import { CustomElement, Toggle, Watch } from 'custom-elements-ts';
+
+      @CustomElement({
+        tag: 'star-rating',
+        templateUrl: './star-rating.element.html',
+        styleUrl: './star-rating.element.scss'
+      })
+      export class StarRatingElement extends HTMLElement { 
+
         @Toggle() checked = true;
 
-    }
-    ```
-    * Add Watch decorator
-    ```ts
-    import { CustomElement, Toggle, Watch } from 'custom-elements-ts';
+        @Watch('checked')
+        onPropertyChanged(value: any) {
+          const span = this.shadowRoot.querySelector('span');
+          if (this.checked) {
+            span.classList.add('checked');
+          } else {
+            span.classList.remove('checked');
+          }
+        }
+        
+      }
+      ```
+    * Add @Listen decorator
+      ```ts
+      import { CustomElement, Toggle, Watch, Listen } from 'custom-elements-ts';
 
-    @CustomElement({
-      tag: 'star-rating',
-      templateUrl: './star-rating.element.html',
-      styleUrl: './star-rating.element.scss'
-    })
-    export class StarRatingElement extends HTMLElement { 
+      @CustomElement({
+        tag: 'star-rating',
+        templateUrl: './star-rating.element.html',
+        styleUrl: './star-rating.element.scss'
+      })
+      export class StarRatingElement extends HTMLElement { 
 
-      @Toggle() checked = true;
+        @Toggle() checked = true;
 
-      @Watch('checked')
-      onPropertyChanged(value: any) {
-        const span = this.shadowRoot.querySelector('span');
-        if (this.checked) {
-          span.classList.add('checked');
-        } else {
-          span.classList.remove('checked');
+        @Watch('checked')
+        onPropertyChanged(value: any) {
+          const span = this.shadowRoot.querySelector('span');
+          if (this.checked) {
+            span.classList.add('checked');
+          } else {
+            span.classList.remove('checked');
+          }
+        }
+
+        @Listen('click') 
+        onClick(e: CustomEvent) {
+          this.checked = !this.checked;
         }
       }
-      
-    }
-    ```
-    * Add Listen decorator
-    ```ts
-    import { CustomElement, Toggle, Watch, Listen } from 'custom-elements-ts';
-
-    @CustomElement({
-      tag: 'star-rating',
-      templateUrl: './star-rating.element.html',
-      styleUrl: './star-rating.element.scss'
-    })
-    export class StarRatingElement extends HTMLElement { 
-
-      @Toggle() checked = true;
-
-      @Watch('checked')
-      onPropertyChanged(value: any) {
-        const span = this.shadowRoot.querySelector('span');
-        if (this.checked) {
-          span.classList.add('checked');
-        } else {
-          span.classList.remove('checked');
-        }
-      }
-
-      @Listen('click') 
-      onClick(e: CustomEvent) {
-        this.checked = !this.checked;
-      }
-    }
-    ```
+      ```
 
   * Add markup to `star-rating.element.html`
-  ```html
-    <span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-        <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
-      </svg>
-    </span>    
-  ```    
+    ```html
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
+        </svg>
+      </span>    
+    ```    
 
   * Add style to `star-rating.element.scss`
-  ```css
-    .checked svg {
-      fill: orange;
-    }
-    span svg {
-      width: 2%;
-    }
-  ```
+    ```css
+      .checked svg {
+        fill: orange;
+      }
+      span svg {
+        width: 2%;
+      }
+    ```
 
   * Export `star-rating.element.ts` to `index.ts`
-  ```ts
-  export * from './star-rating.element';
-  ``` 
+    ```ts
+    export * from './star-rating.element';
+    ``` 
 
 * Update our `app.element.html` markup
-```html
-<div class="container">
-  <star-rating checked></star-rating>
-</div>
-```
+  ```html
+  <div class="container">
+    <star-rating checked></star-rating>
+  </div>
+  ```
 
 * Add elements script to the `.devtools.json`
-```json
-  "scripts": [
-    "main/bundles/main.umd.js",
-    "elements/bundles/elements.umd.js"
-  ]
-```
+  ```json
+    "scripts": [
+      "main/bundles/main.umd.js",
+      "elements/bundles/elements.umd.js"
+    ]
+  ```
+
 * Run your application.
-```
-npm start
-```
+  ```
+  npm start
+  ```
+
 * Browse http://localhost:4000
 
-<br />
 
 ### Project Structure
 ```
@@ -220,8 +221,6 @@ npm start
 ├── package.json
 └── tsconfig.json
 ```
-
-<br />
 
 ##### Delete dist and .tmp folder
 ```
