@@ -1,16 +1,16 @@
 {
-  "name": "@tradeport/main",
+  "name": "main",
   "version": "1.0.0",
-  "description": "Angular Application Seed",
+  "description": "Create custom elements starter main",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aelbore/ngx-seed.git"
+    "url": "git+https://github.com/aelbore/main.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aelbore/ngx-seed/issues"
+    "url": "https://github.com/aelbore/main/issues"
   },
-  "homepage": "https://github.com/aelbore/ngx-seed#readme"
+  "homepage": "https://github.com/aelbore/main#readme"
 }
