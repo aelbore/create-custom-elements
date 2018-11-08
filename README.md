@@ -1,6 +1,13 @@
 # create-custom-elements
 Boilerplate to create custom elements
 
+<br />
+
+### [Stackblitz Demo](https://stackblitz.com/edit/typescript-ycfbcu)
+
+<br />
+
+
 ## Getting Started 
 
 * Clone repository
@@ -154,6 +161,9 @@ Boilerplate to create custom elements
 
   * Add style to `star-rating.element.scss`
     ```css
+       span:hover {
+        cursor: pointer;
+       }
       .checked svg {
         fill: orange;
       }
@@ -188,6 +198,13 @@ Boilerplate to create custom elements
   ```
 
 * Browse http://localhost:4000
+
+<br />
+
+![alt text](https://github.com/aelbore/create-custom-elements/blob/star-rating/star-rating.gif?raw=true)
+
+<br />
+
 
 ## Project Structure
 ```
