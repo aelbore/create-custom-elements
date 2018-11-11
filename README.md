@@ -23,6 +23,12 @@ Boilerplate to create custom elements
 
 <br />
 
+## Step by Step example
+* [ Star Rating ](https://github.com/aelbore/create-custom-elements/tree/star-rating)
+* [ Vanilla Javascript ](https://github.com/aelbore/create-custom-elements/tree/vanilla-js)
+
+<br />
+
 ### Project Structure
 ```
 .
