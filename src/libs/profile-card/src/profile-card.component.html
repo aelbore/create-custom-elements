@@ -1,0 +1,6 @@
+<ar-input placeholder="Search" (ar.change)="onSearch($event)"></ar-input>
+<div class="card-container-list">
+  <div *ngFor="let profile of profiles">
+    <ar-card [profile]="profile"></ar-card>
+  </div>
+</div>

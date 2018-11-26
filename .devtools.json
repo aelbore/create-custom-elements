@@ -6,7 +6,16 @@
       "profile-card": [ "profile-card" ]
     },
     "scripts": [
+      "node_modules/@webcomponents/custom-elements/src/native-shim.js",
       "node_modules/rxjs/bundles/rxjs.umd.js",
+      "node_modules/core-js/client/shim.min.js",
+      "node_modules/zone.js/dist/zone.min.js",
+      "node_modules/@angular/core/bundles/core.umd.min.js",
+      "node_modules/@angular/common/bundles/common.umd.min.js",
+      "node_modules/@angular/compiler/bundles/compiler.umd.min.js",
+      "node_modules/@angular/platform-browser/bundles/platform-browser.umd.min.js",
+      "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.min.js",
+      "node_modules/@angular/elements/bundles/elements.umd.min.js",
       "main/bundles/main.umd.js",
       "elements/bundles/elements.umd.js",
       "profile-card/bundles/profile-card.umd.js"

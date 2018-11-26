@@ -4,8 +4,11 @@
   "description": "Create custom elements with zero configuration",
   "main": "index.js",
   "scripts": {
+    "gulp": "gulp",
     "clean.all": "gulp clean.all",
     "build": "gulp build",
+    "bundle": "gulp bundle --prod --config --assets",
+    "serve.bundle": "http-server dist",
     "start": "gulp --watch --livereload",
     "test": "karma start --single-run"
   },
@@ -20,13 +23,22 @@
   },
   "homepage": "https://github.com/aelbore/create-custom-elements#readme",
   "dependencies": {
+    "@angular/common": "^7.1.0",
+    "@angular/compiler": "7.1.0",
+    "@angular/core": "7.1.0",
+    "@angular/elements": "7.1.0",
+    "@angular/platform-browser": "7.1.0",
+    "@angular/platform-browser-dynamic": "7.1.0",
     "@webcomponents/custom-elements": "1.2.1",
+    "core-js": "2.5.7",
     "custom-elements-ts": "0.0.16",
-    "rxjs": "6.3.3"
+    "rxjs": "6.3.3",
+    "zone.js": "0.8.26"
   },
   "devDependencies": {
     "@ngx-devtools/task": "2.0.0-beta.20",
     "@types/jasmine": "3.3.0",
+    "http-server": "0.11.1",
     "jasmine-core": "3.3.0",
     "karma": "3.1.1",
     "karma-chrome-launcher": "2.2.0",

@@ -1,4 +1,4 @@
-[
+export const profiles = [
   {
     "name": "Arjay Elbore",
     "profession": "Framework Developer",

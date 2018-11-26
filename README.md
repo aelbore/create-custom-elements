@@ -6,12 +6,13 @@ Boilerplate to create custom elements
 * Clone repository
   ```
   git clone https://github.com/aelbore/create-custom-elements.git
+  git checkout angular-elements
   ```
 * Install dependencies
   ```
   npm install
   ```
-* Start the Application
+* Start Application (Dev Mode)
   ```
   npm start
   ```
@@ -20,17 +21,14 @@ Boilerplate to create custom elements
   ```
   npm test
   ```
-
-<br />
-
-## Step by Step example
-* [ Star Rating ](https://github.com/aelbore/create-custom-elements/tree/star-rating)
-* [ Vanilla Javascript ](https://github.com/aelbore/create-custom-elements/tree/vanilla-js)
-
-## Demo
-* [ plnkr ](https://next.plnkr.co/edit/CvFYOqAWzoTM6P4L)
-* [ stackblitz ](https://stackblitz.com/edit/typescript-ycfbcu?file=star-rating.element.ts)
-* [ codesandbox ](https://codesandbox.io/s/vqwk9011o5)
+* Bundle for Production
+  ```
+  npm run bundle
+  ```
+* Start Application with Production bundle
+  ```
+  npm run serve.bundle
+  ```
 
 <br />
 
