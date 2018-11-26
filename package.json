@@ -20,17 +20,17 @@
   },
   "homepage": "https://github.com/aelbore/create-custom-elements#readme",
   "dependencies": {
-    "@webcomponents/custom-elements": "^1.2.1",
-    "custom-elements-ts": "0.0.15",
+    "@webcomponents/custom-elements": "1.2.1",
+    "custom-elements-ts": "0.0.16",
     "rxjs": "6.3.3"
   },
   "devDependencies": {
     "@ngx-devtools/task": "2.0.0-beta.20",
-    "@types/jasmine": "2.8.9",
+    "@types/jasmine": "3.3.0",
     "jasmine-core": "3.3.0",
     "karma": "3.1.1",
     "karma-chrome-launcher": "2.2.0",
-    "karma-jasmine": "1.1.2",
+    "karma-jasmine": "2.0.1",
     "karma-mocha-reporter": "2.2.5",
     "karma-typescript": "3.0.13"
   }
