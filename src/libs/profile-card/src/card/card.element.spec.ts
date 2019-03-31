@@ -1,20 +1,17 @@
+import './card.element'
+
 import { CardElement } from './card.element';
 
 describe('CardElement', () => {
-  let element: CardElement;
-  let ArCardElement: any;
-
-  beforeAll(async () => {
-    ArCardElement = await import('./card.element').then(obj => obj.CardElement);
-  })
+  let element
 
   beforeEach(() => {
-    const cardElementRef = new ArCardElement();
-    element = document.body.appendChild(cardElementRef.cloneNode(true));
+    const arInput = document.createElement('ar-card');
+    element = document.body.appendChild(arInput);
   })
 
   afterEach(() => {
-    element.remove();
+    document.body.removeChild(element)
   })
 
   it('should have shadowRoot.', () =>{
