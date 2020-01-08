@@ -5,17 +5,10 @@ export default {
     plugins: {
       before: [ inlineTemplateTransform() ]
     },
-    external: [ 
-      'custom-elements-ts',
-      'rxjs',
-      'rxjs/operators'
-    ],
     output: {
-      name: 'createCustomElements',
       globals: {
         'custom-elements-ts': 'customElementsTs',
-        'rxjs': 'rxjs',
-        'rxjs/operators': 'rxjs.operators'
+        'rxjs': 'rxjs'
       }
     },
     scripts: [

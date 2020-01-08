@@ -6,7 +6,7 @@
   "scripts": {
     "build": "ts-node --project ./tools/tsconfig.json ./tools/build.ts",
     "start": "ts-node --project ./tools/tsconfig.json ./tools/server.ts",
-    "test": "aria-mocha --browser"
+    "test": "aria test --browser"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/aelbore/create-custom-elements#readme",
   "dependencies": {
-    "custom-elements-ts": "0.0.16"
+    "custom-elements-ts": "0.0.16",
+    "rxjs": "^6.5.4"
   },
   "devDependencies": {
     "@types/chai": "^4.2.8",
@@ -33,7 +34,6 @@
     "magic-string": "^0.25.6",
     "node-sass": "^4.13.1",
     "rollup-plugin-inline-custom-elements-ts": "0.0.1",
-    "rxjs": "^6.5.4",
     "typescript": "^3.7.5"
   }
 }
