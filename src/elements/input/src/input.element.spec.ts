@@ -1,4 +1,6 @@
-import './input.element';
+import './input.element'
+
+import { expect, assert } from 'chai'
 
 describe('ARElement', () => {
   let element;
@@ -13,32 +15,32 @@ describe('ARElement', () => {
   })
 
   it('should have element', () => {
-    expect(element).toBeTruthy();
+    assert.ok(element)
   })
 
   it('should change placeholder attribute', () => {
     element.placeholder = 'First Name';
-    expect(element.labelElement.innerHTML).toEqual('First Name');
+    expect(element.labelElement.innerHTML).to.equal('First Name');
     
     element.setAttribute('placeholder', 'Last Name');
-    expect(element.labelElement.innerHTML).toEqual('Last Name');
+    expect(element.labelElement.innerHTML).to.equal('Last Name');
   })
 
   it('should change disabled attribute', () => {
     element.disabled = true;
-    expect(element.shadowRoot.querySelector('input').disabled).toBeTruthy();
+    expect(element.shadowRoot.querySelector('input').disabled).to.equal(true)
     
     element.setAttribute('disabled', 'false');
-    expect(element.shadowRoot.querySelector('input').disabled).toBeFalsy();
+    expect(element.shadowRoot.querySelector('input').disabled).to.equal(false)
   })
 
   it('should add/remove active class on label', () => {
     element.placeholder = 'Name';
     element.value = 'John Doe';
-    expect(element.labelElement.classList.contains('active')).toBeTruthy();
+    assert.ok(element.labelElement.classList.contains('active'))
 
     element.value = '';
-    expect(element.labelElement.classList.contains('active')).toBeFalsy();
+    expect(element.labelElement.classList.contains('active')).to.equal(false)
   })
 
   it('should emit ar.change event', (done) => {
@@ -46,7 +48,7 @@ describe('ARElement', () => {
     const inputElem = element.shadowRoot.querySelector('input');
     element.value = 'keyup';
     element.addEventListener('ar.change', e => {
-      expect(e.detail.value).toBeDefined('keyup');
+      assert.ok(e.detail.value)
       done();
     });
     inputElem.dispatchEvent(inputEvent);
@@ -56,7 +58,7 @@ describe('ARElement', () => {
     const inputEvent = new Event('blur');
     const inputElem = element.shadowRoot.querySelector('input');
     element.addEventListener('ar.blur', e => {
-      expect(e.detail).toBeDefined();
+      assert.ok(e.detail)
       done();
     });
     inputElem.dispatchEvent(inputEvent);
@@ -66,7 +68,7 @@ describe('ARElement', () => {
     const inputEvent = new Event('focus');
     const inputElem = element.shadowRoot.querySelector('input');
     element.addEventListener('ar.focus', e => {
-      expect(e.detail).toBeDefined();
+      assert.ok(e.detail)
       done();
     });
     inputElem.dispatchEvent(inputEvent);

@@ -1,5 +1,5 @@
 {
-  "name": "@tradeport/main",
+  "name": "main",
   "version": "1.0.0",
   "description": "Angular Application Seed",
   "main": "index.js",

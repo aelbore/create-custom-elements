@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean.all": "gulp clean.all",
-    "build": "gulp build",
-    "start": "gulp --watch --livereload",
-    "test": "aria test"
+    "build": "ts-node --project ./tools/tsconfig.json ./tools/build.ts",
+    "start": "ts-node --project ./tools/tsconfig.json ./tools/server.ts",
+    "test": "aria-mocha --browser -d ./src/elements"
   },
   "repository": {
     "type": "git",
@@ -20,13 +20,21 @@
   },
   "homepage": "https://github.com/aelbore/create-custom-elements#readme",
   "dependencies": {
-    "custom-elements-ts": "0.0.16",
-    "rxjs": "6.3.3"
+    "custom-elements-ts": "0.0.16"
   },
   "devDependencies": {
-    "@ngx-devtools/task": "2.0.0-beta.20",
-    "@types/jasmine": "3.3.0",
-    "aria-tools": "^0.0.4",
-    "rollup-plugin-inline-custom-elements-ts": "0.0.1"
+    "@types/chai": "^4.2.8",
+    "@types/express": "^4.17.2",
+    "@types/mocha": "^7.0.1",
+    "aria-build": "0.1.0",
+    "aria-fs": "0.1.0",
+    "aria-mocha": "0.1.0",
+    "aria-mocha-headless": "0.1.0",
+    "express": "^4.17.1",
+    "magic-string": "^0.25.6",
+    "node-sass": "^4.13.1",
+    "rollup-plugin-inline-custom-elements-ts": "0.0.1",
+    "rxjs": "^6.5.4",
+    "typescript": "^3.7.5"
   }
 }

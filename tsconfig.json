@@ -2,21 +2,14 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
-    "module": "esNext",
+    "target": "es2015",
     "moduleResolution": "node",
-    "removeComments": true,
-    "sourceMap": true,
+    "allowJs": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "lib": ["es5", "es6", "dom"],
-    "importHelpers": true
-  },
-  "include": [
-    ".tmp/**/*",
-    "src/**/*.ts"
-  ]
+    "lib": [
+      "es5", "es6", "dom"
+    ],
+    "resolveJsonModule": true
+  }
 }
