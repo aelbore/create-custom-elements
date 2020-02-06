@@ -43,17 +43,6 @@ describe('ARElement', () => {
     expect(element.labelElement.classList.contains('active')).to.equal(false)
   })
 
-  it('should emit ar.change event', (done) => {
-    const inputEvent = new Event('keyup');
-    const inputElem = element.shadowRoot.querySelector('input');
-    element.value = 'keyup';
-    element.addEventListener('ar.change', e => {
-      assert.ok(e.detail.value)
-      done();
-    });
-    inputElem.dispatchEvent(inputEvent);
-  })
-
   it('should emit ar.blur event', (done) => {
     const inputEvent = new Event('blur');
     const inputElem = element.shadowRoot.querySelector('input');

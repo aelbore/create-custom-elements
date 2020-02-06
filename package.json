@@ -4,10 +4,9 @@
   "description": "Create custom elements with zero configuration",
   "main": "index.js",
   "scripts": {
-    "clean.all": "gulp clean.all",
     "build": "ts-node --project ./tools/tsconfig.json ./tools/build.ts",
     "start": "ts-node --project ./tools/tsconfig.json ./tools/server.ts",
-    "test": "aria-mocha --browser -d ./src/elements"
+    "test": "aria-mocha --browser"
   },
   "repository": {
     "type": "git",

@@ -1,13 +1,14 @@
 import './card.element'
 
-import { CardElement } from './card.element';
+import { CardElement } from './card.element'
+import { expect, assert } from 'chai'
 
 describe('CardElement', () => {
-  let element
+  let element: CardElement
 
   beforeEach(() => {
-    const arInput = document.createElement('ar-card');
-    element = document.body.appendChild(arInput);
+    element = document.createElement('ar-card') as CardElement;
+    document.body.appendChild(element);
   })
 
   afterEach(() => {
@@ -15,11 +16,11 @@ describe('CardElement', () => {
   })
 
   it('should have shadowRoot.', () =>{
-    expect(element.shadowRoot).toBeTruthy();
+    assert.ok(element.shadowRoot)
   })
 
   it(`should have card element.`, () => {
-    expect(element).toBeTruthy();
+    assert.ok(element)
   })
 
   it(`should createContent.`, () => {
@@ -28,13 +29,13 @@ describe('CardElement', () => {
       profession: 'Framework Developer',
       motto: 'I never wanted to be famous, I wanted to be great.'
     }
-    const content = (element as CardElement).createContent(profile);
+    const content = element.createContent(profile)
 
     const node = content.querySelector('.main');
-    expect(node).toBeTruthy();
-    expect(node.querySelector('h3').innerHTML).toEqual(profile.name);
-    expect(node.querySelector('p.profession').innerHTML).toEqual(profile.profession);
-    expect(node.querySelector('p.text-center').innerHTML).toEqual(profile.motto);
+    assert.ok(node)
+    expect(node.querySelector('h3').innerHTML).to.equal(profile.name);
+    expect(node.querySelector('p.profession').innerHTML).to.equal(profile.profession);
+    expect(node.querySelector('p.text-center').innerHTML).to.equal(profile.motto);
   })
 
   it(`should append the content.`, () => {
@@ -47,7 +48,7 @@ describe('CardElement', () => {
     element.onPropertyChangedProfiles({ new: profile });
     
     const main = element.shadowRoot.querySelector('.main');
-    expect(main).toBeTruthy();
+    assert.ok(main)
   })
 
 })
