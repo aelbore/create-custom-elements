@@ -1,4 +1,4 @@
-import { TSRollupConfig, readdir, clean, build, copyFiles } from 'aria-build'
+import { TSRollupConfig, readdir, clean, build, copyFiles, watcher } from 'aria-build'
 import { join } from 'path'
 
 (async function() {
@@ -31,8 +31,10 @@ import { join } from 'path'
     })
   }
 
-  const elements = await getSources('./src/elements')
-  const libs = await getSources('./src/libs')
+  const [ elements, libs ] = await Promise.all([
+    getSources('./src/elements'),
+    getSources('./src/libs'),
+  ])
 
   const options: TSRollupConfig[] = [
     {
@@ -61,21 +63,32 @@ import { join } from 'path'
         file: './dist/libs.js',
         ...output
       } 
-    },
-    {
-      input: './node_modules/custom-elements-ts/esm2015/custom-elements-ts.js',
-      output: {
-        format: 'umd',
-        name: 'customElementsTs',
-        file: './dist/custom-elements-ts.js'
-      }
     }
   ]
 
   await clean('dist')
   await Promise.all([
+    build({
+      input: './node_modules/custom-elements-ts/esm2015/custom-elements-ts.js',
+      output: {
+        format: 'umd',
+        name: 'customElementsTs',
+        file: './node_modules/custom-elements-ts/bundles/custom-elements-ts.js'
+      }
+    }),
     build(options),
     copyFiles('./src/*', 'dist'),
     copyFiles('./src/assets/**/*', 'dist')
   ])
+  await watcher('./src', { 
+    async onReady(files: string[]) {
+      console.log(`> Initial scan complete. Ready for changes. Total files: ${files.length}`)
+      await import('./server')
+    },
+    async onChange(file: string, stats: import('fs').Stats) {
+      console.log(`File: ${file} was changed.`)
+      const option = options.find(option => file.includes(option.output.name))
+      option && await build(option)
+    }
+  })
 })()

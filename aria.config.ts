@@ -13,7 +13,7 @@ export default {
     },
     scripts: [
       './node_modules/rxjs/bundles/rxjs.umd.min.js',
-      './dist/custom-elements-ts.js',
+      './node_modules/custom-elements-ts/bundles/custom-elements-ts.js',
     ]
   }
 }
