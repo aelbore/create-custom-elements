@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "ts-node --project ./tools/tsconfig.json ./tools/build.ts",
+    "build.ce": "ts-node --project ./tools/tsconfig.json ./tools/build.ce.ts",
     "start": "ts-node --project ./tools/tsconfig.json ./tools/server.ts",
     "test": "aria test --browser"
   },
