@@ -1,7 +1,8 @@
 import { dirname } from 'path'
-import { build, clean, TSRollupConfig }  from 'aria-build'
+import { build, clean, ebundle, TSRollupConfig }  from 'aria-build'
 
 (async function() {
+  
   const options: TSRollupConfig = {
     input: './node_modules/custom-elements-ts/esm2015/custom-elements-ts.js',
     output: {
@@ -11,6 +12,6 @@ import { build, clean, TSRollupConfig }  from 'aria-build'
     }
   }
 
-  await clean(dirname(options.output.file))
-  await build(options)
+  // await clean(dirname(options.output.file))
+  // await build(options)
 })()

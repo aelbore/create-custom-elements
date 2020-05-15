@@ -1,9 +1,9 @@
-import { TSRollupConfig, readdir, clean, build, copyFiles, watcher } from 'aria-build'
 import { join } from 'path'
+import { TSRollupConfig, readdir, clean, ebuild, copyFiles, watcher, RollupConfigOutput, esbuild } from 'aria-build'
+import { inlineTemplateTransform } from 'custom-elements-ts/plugins/inline-template-plugin'
 
 (async function() {
-  const inlineTemplateTransform = require('rollup-plugin-inline-custom-elements-ts')
-
+  
   const inputOptions = {
     external: [ 
       'custom-elements-ts',
@@ -15,7 +15,7 @@ import { join } from 'path'
     }
   }
 
-  const output = {
+  const output: RollupConfigOutput = {
     format: 'umd',
     globals: {
       'custom-elements-ts': 'customElementsTs',
@@ -26,9 +26,7 @@ import { join } from 'path'
 
   async function getSources(src: string) {
     const folders = await readdir(src)
-    return folders.map(folder => {
-      return join(src, folder, 'src', 'index.ts') 
-    })
+    return folders.map(folder => join(src, folder, 'src', 'index.ts'))
   }
 
   const [ elements, libs ] = await Promise.all([
@@ -68,7 +66,7 @@ import { join } from 'path'
 
   await clean('dist')
   await Promise.all([
-    build(options),
+    esbuild({ config: options, esbuild: true }),
     copyFiles([ 
       './src/*', 
       './src/assets/**/*'
@@ -80,8 +78,10 @@ import { join } from 'path'
       },
       async onChange(file: string, stats: import('fs').Stats) {
         console.log(`File: ${file} was changed.`)
-        const option = options.find(option => file.includes(option.output.name))
-        option && await build(option)
+        const option = options.find(option =>  
+          file.includes((option.output as RollupConfigOutput).name))
+        
+        option && await ebuild({ config: option })
       }
     })
   ])
